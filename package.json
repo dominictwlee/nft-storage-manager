@@ -1,0 +1,23 @@
+{
+  "name": "nft-storage-manager",
+  "version": "0.1.0",
+  "author": "Dominic Lee",
+  "main": "index.js",
+  "description": "",
+  "license": "ISC",
+  "scripts": {
+    "bundlr:upload": "ts-node-esm src/bundlr.ts"
+  },
+  "devDependencies": {
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
+    "bun-types": "^0.1.4",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@bundlr-network/client": "^0.7.15",
+    "chalk": "^5.0.1",
+    "dotenv": "^16.0.1"
+  }
+}
