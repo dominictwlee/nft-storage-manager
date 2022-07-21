@@ -1,4 +1,4 @@
-type BundlrNetwork = "node1" | "node2" | "devnet";
+export type BundlrNetwork = "node1" | "node2" | "devnet";
 
 interface StorageManagerConfig {
   network: BundlrNetwork;

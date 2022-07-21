@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 
 import Bundlr from "@bundlr-network/client";
-import bundlrConfig from "../bundlr.config";
+import bundlrConfig, { BundlrNetwork } from "../bundlr.config";
 import * as fs from "fs";
 import * as path from "path";
 import * as fsp from "fs/promises";
@@ -9,6 +9,11 @@ import * as log from "./log";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../");
 const ASSETS_PATH = path.resolve(PROJECT_ROOT, "assets");
+const bundlrNetworks: { [K in BundlrNetwork]: string } = {
+  node1: "https://node1.bundlr.network",
+  node2: "https://node2.bundlr.network",
+  devnet: "https://devnet.bundlr.network",
+};
 
 async function main() {
   const { network, currency, providerUrl, walletPath } = bundlrConfig;
@@ -17,7 +22,7 @@ async function main() {
       encoding: "utf8",
     })
   );
-  const bundlr = new Bundlr(network, currency, jwk, {
+  const bundlr = new Bundlr(bundlrNetworks[network], currency, jwk, {
     providerUrl,
   });
   const balance = await bundlr.getLoadedBalance();
